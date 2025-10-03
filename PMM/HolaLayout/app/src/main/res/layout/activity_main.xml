@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal|center_vertical"
+    android:orientation="vertical"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteY="1dp">
+
+    <Button
+        android:id="@+id/irOtra"
+        android:layout_width="600px"
+        android:layout_height="wrap_content"
+        android:text="Ir a otra pantalla" />
+
+    <EditText
+        android:id="@+id/editNombre"
+        android:layout_width="400px"
+        android:layout_height="200px"
+        android:ems="10"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btnSaludar"
+        android:layout_width="400px"
+        android:layout_height="200px"
+        android:text="Saludar" />
+
+    <TextView
+        android:id="@+id/txtSaludo"
+        android:layout_width="400px"
+        android:layout_height="200px"
+        android:gravity="center"
+        android:text="Hola, " />
+
+    <Button
+        android:id="@+id/btnBorrar"
+        android:layout_width="400px"
+        android:layout_height="200px"
+        android:text="Borrar" />
+
+</LinearLayout>

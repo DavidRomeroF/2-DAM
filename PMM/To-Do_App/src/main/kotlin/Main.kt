@@ -1,20 +1,17 @@
 package drf.pro
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
     var seguir = true
     var user1 = Usuario("David")
     var idTarea = 1
 
-    var tituloTarea: String? = ""
-    var descripcion: String? = ""
-    var completada : String? = ""
+    var tituloTarea: String?
+    var descripcion: String?
+    var completada : String?
     var completa = false
-    var comp = false
-
+    var comp = true
     do {
-        println("Bienvenido ${user1.nombre} al sistema de Usuario y tareas. \n" +
+        println("\nBienvenido ${user1.nombre} al sistema de Usuario y tareas. \n" +
                 "Selecciona una opcion:")
         println("""
             1-Agregar una Tarea
@@ -25,67 +22,57 @@ fun main() {
             6-Salir
         """.trimIndent())
 
-        val seleccion = readLine()?.toIntOrNull()
+        val seleccion = readlnOrNull()?.toIntOrNull()
 
         when (seleccion) {
             1 -> {
-                println("Agregar tarea:")
+                println("Agregar tarea")
                 print("Titulo de la tarea: ")
-                tituloTarea = readLine()
+                tituloTarea = readlnOrNull()
                 print("Descipcion de la tarea: ")
-                descripcion = readLine()
+                descripcion = readlnOrNull()
                 do {
                     print("La tarea esta completada: (S/N)")
-                    completada = readLine()
-                    if (completa.equals("S")){
+                    completada = readlnOrNull()
+                    if (completada.equals("S")){
                         completa = true
-                        comp = true
-                    } else if (completa.equals("N")){
+                        comp = false
+                    } else if (completada.equals("N")){
                         completa = false
-                        comp = true
+                        comp = false
                     } else
                         comp = true
                 }while (comp)
-
-
-
+                user1.listaTareas.agregarTarea(Tarea(idTarea,tituloTarea,descripcion,completa))
+                idTarea++
             }
             2 -> {
-                println("")
-
+                user1.listaTareas.mostrarTareas()
             }
             3 ->{
-                println("")
-
+                println("buscar tarea por ID")
+                print("ID de la tarea: ")
+                val idTareaBusc = readLine()?.toIntOrNull()
+                val result = user1.listaTareas.buscarTarea(idTareaBusc)
+                if (result == null){
+                    println("No existe ninguna tarea con ese ID")
+                }else
+                    result.mostrarinfo()
             }
             4 -> {
-                println("")
+                println("Eliminar tarea por ID")
+                print("ID de la tarea: ")
+                val idTareaBusc = readLine()?.toIntOrNull()
+                user1.listaTareas.eliminarTarea(idTareaBusc)
 
             }
             5 -> {
-                println("")
-
+                user1.listaTareas.tareasCompletadas()
             }
             6 ->{
-                println("")
-
+                seguir=false
             }
             else -> println("No es un número válido")
         }
-
-
-
-
     }while (seguir)
-
-
-
-
-
-    user1.listaTareas.agregarTarea(Tarea(1,"Estudiar","Para el examen de PMM", false))
-    user1.listaTareas.mostrarTareas()
-    user1.listaTareas.buscarTarea(1)?.marcarComoCompletada()
-    user1.listaTareas.eliminarTarea(1)
-    user1.listaTareas.tareasCompletadas()
-
 }

@@ -8,7 +8,7 @@ class ListaTareas() {
         println("Tarea añadida correcta mente")
     }
 
-    fun eliminarTarea(id: Int){
+    fun eliminarTarea(id: Int?){
         var tarea = buscarTarea(id)
         if (tarea != null){
             tareas.remove(tarea)
@@ -20,10 +20,10 @@ class ListaTareas() {
 
     fun mostrarTareas(){
         for (i in tareas)
-            i.descripcion
+            i.mostrarinfo()
     }
 
-    fun buscarTarea(id: Int): Tarea? {
+    fun buscarTarea(id: Int?): Tarea? {
         return tareas.find { it.id == id }
     }
 
@@ -31,7 +31,7 @@ class ListaTareas() {
     fun tareasCompletadas(){
         for (i in tareas){
             if (i.completadas){
-                i.descripcion
+                i.mostrarinfo()
             }
         }
     }

@@ -1,6 +1,6 @@
 package drf.pro
 
-class Tarea(var id: Int, var titulo:String, var descripcion: String, var completadas: Boolean ) {
+class Tarea(var id: Int, var titulo: String?, var descripcion: String?, var completadas: Boolean) {
 
     fun marcarComoCompletada(){
         completadas = true
@@ -10,9 +10,9 @@ class Tarea(var id: Int, var titulo:String, var descripcion: String, var complet
     fun mostrarinfo(){
 
         if (completadas){
-            print("[✔] $id - $titulo ($descripcion)")
+            print("[✔] $id - $titulo ($descripcion) \n")
         }else{
-            print("[ ] $id - $titulo ($descripcion)")
+            print("[ ] $id - $titulo ($descripcion)\n")
         }
 
     }

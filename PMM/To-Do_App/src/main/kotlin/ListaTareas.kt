@@ -30,7 +30,7 @@ class ListaTareas() {
 
     fun tareasCompletadas(){
         for (i in tareas){
-            if (!i.completadas){
+            if (i.completadas){
                 i.descripcion
             }
         }

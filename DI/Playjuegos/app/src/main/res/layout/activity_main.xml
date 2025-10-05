@@ -52,8 +52,8 @@
             android:text="PLAY"
             android:textAllCaps="true"
             android:textColor="#191b1a"
-            app:backgroundTint="#d6d8d7"
-            app:cornerRadius="5dp" />
+            app:backgroundTint="@color/secondaryColor"
+            app:cornerRadius="100dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnPlay2"
@@ -64,8 +64,8 @@
             android:text="NEW PLAYER"
             android:textAllCaps="true"
             android:textColor="#191b1a"
-            app:backgroundTint="#d6d8d7"
-            app:cornerRadius="5dp"
+            app:backgroundTint="@color/secondaryColor"
+            app:cornerRadius="100dp"
             tools:ignore="OnClick" />
 
         <com.google.android.material.button.MaterialButton
@@ -73,12 +73,12 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="PREFERENCES"
             android:onClick="lanzarPreferencias"
+            android:text="PREFERENCES"
             android:textAllCaps="true"
             android:textColor="#191b1a"
-            app:backgroundTint="#d6d8d7"
-            app:cornerRadius="5dp"
+            app:backgroundTint="@color/secondaryColor"
+            app:cornerRadius="100dp"
             tools:ignore="OnClick" />
 
         <com.google.android.material.button.MaterialButton
@@ -91,8 +91,8 @@
             android:text="ABOUT"
             android:textAllCaps="true"
             android:textColor="#191b1a"
-            app:backgroundTint="#d6d8d7"
-            app:cornerRadius="5dp" />
+            app:backgroundTint="@color/secondaryColor"
+            app:cornerRadius="100dp" />
 
 
     </LinearLayout>

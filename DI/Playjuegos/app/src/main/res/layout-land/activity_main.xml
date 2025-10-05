@@ -34,10 +34,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autoText="false"
+            android:fontFamily="@font/mifuete"
             android:gravity="center"
             android:text="Play Juegos"
             android:textColor="#6c6c6c"
-            android:textSize="24sp" />
+            android:textSize="30dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,8 +57,8 @@
                 android:text="PLAY"
                 android:textAllCaps="true"
                 android:textColor="#191b1a"
-                app:backgroundTint="#d6d8d7"
-                app:cornerRadius="5dp" />
+                app:backgroundTint="@color/secondaryColor"
+                app:cornerRadius="100dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnNewPlayer"
@@ -70,8 +71,8 @@
                 android:text="NEW PLAYER"
                 android:textAllCaps="true"
                 android:textColor="#191b1a"
-                app:backgroundTint="#d6d8d7"
-                app:cornerRadius="5dp"
+                app:backgroundTint="@color/secondaryColor"
+                app:cornerRadius="100dp"
                 tools:ignore="OnClick" />
         </LinearLayout>
 
@@ -90,8 +91,8 @@
                 android:text="PREFERENCIES"
                 android:textAllCaps="true"
                 android:textColor="#191b1a"
-                app:backgroundTint="#d6d8d7"
-                app:cornerRadius="5dp" />
+                app:backgroundTint="@color/secondaryColor"
+                app:cornerRadius="100dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnAbout"
@@ -102,8 +103,8 @@
                 android:text="ABOUT"
                 android:textAllCaps="true"
                 android:textColor="#191b1a"
-                app:backgroundTint="#d6d8d7"
-                app:cornerRadius="5dp"/>
+                app:backgroundTint="@color/secondaryColor"
+                app:cornerRadius="100dp" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

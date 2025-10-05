@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PlayJuegos">
         <activity
+            android:name=".Filtros"
+            android:exported="false" />
+        <activity
             android:name=".Games"
             android:exported="false" />
         <activity

@@ -3,16 +3,19 @@ package semana05.ejercicio2;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import semana05.ejemplos.LocalizacionRickAndMorty;
+import semana05.ejercicio.Videojuego;
 
+import java.io.File;
 import java.net.URI;
 import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
-import java.util.List;
+
 
 public class Utilities {
 
@@ -28,7 +31,7 @@ public class Utilities {
                     .build();
 
             HttpResponse<String> respuesta = cliente.send(peticion, HttpResponse.BodyHandlers.ofString());
-            System.out.println("Respuesta de la API: " + respuesta.body()); // 👀 Debug
+            //System.out.println("Respuesta de la API: " + respuesta.body());
             if (respuesta.body() == null || respuesta.body().isBlank()) {
                 System.out.println("⚠ La API devolvió vacío");
                 return null;
@@ -43,11 +46,29 @@ public class Utilities {
     }
 
 
+    public static EquipoCS2 leerEquiposDesdeJSON(String src) {
+        EquipoCS2 listaLectura;
+        try {
+            ObjectMapper mapeador = new ObjectMapper();
 
-    public static void main(String[] args) {
-        EquipoCS2 equipo = leerFichaEquipoCS2HLTV("Nemiga");
+            // 👇 Registrar soporte para LocalDate
+            mapeador.registerModule(new JavaTimeModule());
+            mapeador.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
-        System.out.println(equipo.toString());
+            listaLectura = mapeador.readValue(
+                    new File(src),
+                    new TypeReference<>() {}
+            );
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        return listaLectura;
     }
+
+
+
+
 
 }
